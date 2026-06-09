@@ -8,6 +8,8 @@ def plot_training_history(history, model_name='Model', save_path=None):
 
     # Loss 그래프
     ax1.plot(epochs, history['train_loss'], 'b-o', label='Train Loss')
+    if history.get('val_loss'):
+        ax1.plot(epochs, history['val_loss'], 'g-o', label='Validation Loss')
     ax1.set_title(f'{model_name} - Loss')
     ax1.set_xlabel('Epoch')
     ax1.set_ylabel('Loss')
@@ -15,6 +17,8 @@ def plot_training_history(history, model_name='Model', save_path=None):
 
     # Accuracy 그래프
     ax2.plot(epochs, history['train_acc'], 'r-o', label='Train Acc')
+    if history.get('val_acc'):
+        ax2.plot(epochs, history['val_acc'], 'm-o', label='Validation Acc')
     ax2.set_title(f'{model_name} - Accuracy')
     ax2.set_xlabel('Epoch')
     ax2.set_ylabel('Accuracy (%)')
