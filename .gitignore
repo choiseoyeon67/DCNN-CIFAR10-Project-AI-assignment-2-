@@ -231,3 +231,4 @@ __pycache__/
 results/*.csv
 checkpoints/*
 !checkpoints/.gitkeep
+data/
